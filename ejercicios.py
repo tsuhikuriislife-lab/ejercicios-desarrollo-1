@@ -297,8 +297,171 @@ elif opcion_inicio == 13:
     pastel = 6000
     total = 0
     salir = 0
-    c
+    pedido = 1
+    cantidad_cafe = 0
+    cantidad_capuchino = 0
+    cantidad_pastel = 0
+
     while salir == 0:
-        print
+        total_cliente = 0
+        descuento = total_cliente * 0.1
+        print(f"Pedido #{pedido}")
+        print(f"Menu:\n1.Cafe: ${cafe}\n2.Capuchino: ${capuchino}\n3.Pastel: ${pastel}")
+        orden = int(input("Que desea ordenar?: "))
+
+        if orden == 1:
+            cantidad = int(input("Cuantos desea ordenar?: "))
+            cantidad_cafe += cantidad
+            total_cliente += cafe * cantidad
+            if total_cliente > 20000:
+                total_cliente -= descuento
+                print(f"El total sería: ${total_cliente} (descuento aplicado!)")
+                total += total_cliente
+            else:
+                print(f"El total seria: ${total_cliente}")
+                total += total_cliente
+
+            pedido += 1
+
+        elif orden == 2:
+            cantidad = int(input("Cuantos desea ordenar?: "))
+            total_cliente += capuchino * cantidad
+            cantidad_capuchino += cantidad
+            if total_cliente > 20000:
+                total_cliente -= descuento
+                print(f"El total sería: ${total_cliente} (descuento aplicado!)")
+                total += total_cliente
+            else:
+                print(f"El total seria: ${total_cliente}")
+                total += total_cliente
+
+            pedido += 1
+            
+        elif orden == 3:
+            cantidad = int(input("Cuantos desea ordenar?: "))
+            total_cliente += pastel * cantidad
+            cantidad_pastel += cantidad
+
+            if total_cliente > 20000:
+                total_cliente -= descuento
+                print(f"El total sería: ${total_cliente} (descuento aplicado!)")
+                total += total_cliente
+
+            else:
+                print(f"El total seria: ${total_cliente}")
+                total += total_cliente
+
+            pedido += 1
+
+        else:
+            print("Por favor seleccione una opcion correcta.")
+        opcion_salida = input("Desea salir? S/N: ").lower()
+        if opcion_salida == "s":
             salir += 1
-        
+    print(f"Total del dia:\nPedidos: {pedido}\nCafes ordenados: {cantidad_cafe}\nCapuchinos ordenados: {cantidad_capuchino}\nPasteles ordenados: {cantidad_pastel}\nTotal dia: ${total}")
+
+elif opcion_inicio == 14:
+    print("Bienvenido al cine")
+    niño = 0
+    adulto = 0
+    adulto_mayor = 0
+    salir = 0
+    clientes = 1
+    while salir == 0:
+        edad = int(input("Por favor ingresa tu edad: "))
+        if edad in range(0,18):
+            niño += 1
+        elif edad in range(18,50):
+            adulto += 1
+        elif edad in range(50,100):
+            adulto_mayor += 1
+        else:
+            print("Edad invalida.")
+        clientes += 1
+        opcion_salida = input("Salir? (S/N): ").lower()
+        if opcion_salida == "s":
+            salir += 1
+    print(f"Total del dia:\nCantidad de clientes: {clientes}\nNiños: {niño}\nAdultos: {adulto}\nAdultos mayores: {adulto_mayor}")
+
+elif opcion_inicio == 15:
+    print("Bienvenido al parqueadero.")
+    total = 0
+    cantidad_moto = 0
+    cantidad_carro = 0
+    total_moto = 0
+    total_carro = 0
+    for i in range(0,5,1):
+        tipo_vehiculo = int(input("Por favor seleccione su tipo de vehiculo:\n1.Moto\n2.Carro\n--- "))
+        horas_parqueo = int(input("Cuantas horas estuvo en el parqueadero?: "))
+
+        if tipo_vehiculo == 1:
+            valor_hora = 2000
+            cantidad_moto += 1
+            valor_parqueo = valor_hora*horas_parqueo
+            total += valor_parqueo
+            total_moto += valor_parqueo
+            print(f"Total parqueo = {valor_parqueo}")
+        elif tipo_vehiculo == 2:
+            valor_hora = 4000
+            cantidad_carro += 1
+            valor_parqueo = valor_hora*horas_parqueo
+            total += valor_parqueo
+            total_carro += valor_parqueo
+            print(f"Total parqueo = {valor_parqueo}")
+    print(f"Total del dia:\nNumero de motos: {cantidad_moto}\nTotal parqueo de motos: ${total_moto}\nNumero de carros: {cantidad_carro}\nTotal parqueo de carros: ${total_carro}\nTotal del dia: ${total}")    
+
+elif opcion_inicio == 16:
+    print("Bienvenido a la tienda de mascotas!")
+    alimentos = 0 
+    juguetes = 0
+    accesorios = 0
+    ttalim = 0
+    ttjug = 0
+    ttacc = 0
+
+    for i in range(0,10,1):
+        print(f"Pedido #{i+1}")
+        print("Lista de categorias:\n1.Alimentos\n2.Juguetes\n3.Accesorios")
+        categoria = int(input("Seleccione la categoria: "))
+        if categoria == 1:
+            alimentos += 1
+            valor_venta = int(input("Digite el valor"))
+            ttalim += valor_venta
+        if categoria == 2:
+            juguetes += 1
+            valor_venta = int(input("Digite el valor"))
+            ttjug += valor_venta
+        if categoria == 3:
+            accesorios += 1
+            valor_venta = int(input("Digite el valor"))
+            ttacc += valor_venta
+    print(f"Total del dia:\nVentas por categoria:\nJuguetes: {juguetes}\nAlimentos: {alimentos}\nAccesorios: {accesorios}\nTotal generado por categoria:\nJuguetes: ${ttjug}\nAlimentos: ${ttalim}\nAccesorios: ${ttacc}")
+
+elif opcion_inicio == 17:
+    print("Bienvenido a la peluqueria!")
+    total = 0
+    clientes = 0
+    corte = 0
+    cepillado = 0
+    tintura = 0
+    total = 0
+    for i in range(0,7,1):
+        print(f"Cliente #{i+1}")
+        print("Lista de servicios:\n1.Corte\n2.Cepillada\n3.tintura")
+        servicio = int(input("Seleccione su servicio: "))
+        if servicio == 1:
+            valor_pagado = int(input("Digite el valor pagado: "))
+            total += valor_pagado
+            corte += 1
+            clientes += 1
+        elif servicio == 2:
+            valor_pagado = int(input("Digite el valor pagado: "))
+            total += valor_pagado
+            cepillado += 1
+            clientes += 1
+        elif servicio == 3:
+            valor_pagado = int(input("Digite el valor pagado: "))
+            total += valor_pagado
+            tintura += 1
+            clientes += 1
+    print(f"Total dia:\nNumero de clientes: {clientes}\nTotal: ${total}\nNumero de cortes: {corte}\nNumero de cepilladas: {cepillado}\nNumero de tinturas: {tintura}")
