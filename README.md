@@ -1,4 +1,4 @@
-#Bienvenido a mi repositorio, Team Leader
+# Bienvenido a mi repositorio, Team Leader
 
 Dentro del archivo "ejercicios.py" encontrarás una compliacion con todos los ejercicios de practica!
 
