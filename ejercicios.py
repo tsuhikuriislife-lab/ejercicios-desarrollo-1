@@ -465,3 +465,80 @@ elif opcion_inicio == 17:
             tintura += 1
             clientes += 1
     print(f"Total dia:\nNumero de clientes: {clientes}\nTotal: ${total}\nNumero de cortes: {corte}\nNumero de cepilladas: {cepillado}\nNumero de tinturas: {tintura}")
+
+elif opcion_inicio == 18:
+    print("Bienvenido al Centro de idiomas!")
+    estudiantes = {}
+    bajo = 0
+    medio = 0
+    alto = 0
+    for i in range (5):
+
+        nombre = input("Por favor escribe tu nombre: ")
+        speaking = int(input("Digite su nota de speaking:" ))
+        listening = int(input("Digite su nota de listening: "))
+        reading = int(input("Digite su nota de reading: "))
+        promedio = (speaking + listening + reading) / 3
+        estudiantes[nombre] = promedio
+        if promedio < 60:
+            print("Promedio bajo.")
+            bajo += 1
+        elif promedio in range(60,80):
+            print("Promedio medio.")
+            medio += 1
+        elif promedio >= 80:
+            print("Promedio alto.")
+            alto += 1
+    mejor = max(estudiantes, key=estudiantes.get)
+    promedio_general = sum(estudiantes.values()) / len(estudiantes)
+    print(f"Promedio general: {promedio_general}\nMejor estudiante: {mejor}\nEstudiantes en cada nivel:\nBajo: {bajo}\nMedio: {medio}\nAlto: {alto}")
+
+elif opcion_inicio == 19:
+    print("Bienvenido a la Tienda de ropa!")
+    no_stock = 0
+    bajo = 0
+    normal = 0
+    for i in range (10):
+        nombre = input("Nombre del producto: ")
+        cantidad = int(input("Cantidad del producto: "))
+        if cantidad == 0:
+            print("Fuera de stock.")
+            no_stock += 1
+        elif cantidad in range (1,6):
+            print("Stock bajo.")
+            bajo += 1
+        elif cantidad >= 6:
+            print("Stock normal.")
+            normal += 1
+    print(f"{no_stock} productos fuera de stock, {bajo} productos con stock bajo, {normal} productos con stock normal.")
+
+elif opcion_inicio == 20:
+    basico = 0
+    premium = 0
+    familiar = 0
+    pbasico = 50000
+    ppremium = 90000
+    pfamiliar = 130000
+    print("Bienvenido al Club recreativo!")
+    for i in range(4):
+        nombre = input("Por favor introduzca su nombre: ")
+        edad = int(input("Por favor digite su edad: "))
+        if edad < 18:
+            print("Beneficio juvenil activado...")
+        elif edad > 60:
+            print("Beneficio senior activado...")
+        plan = int(input("Seleccione su plan:\n1.Plan basico: $50000\n2.Plan premium: $90000\n3.PLan familiar: $130000\n--- "))
+        if plan == 1:
+            basico += 1
+        elif plan == 2:
+            premium += 1
+        elif plan == 3:
+            familiar += 1
+    total = (basico * pbasico) + (premium * ppremium) + (familiar * pfamiliar)
+    mayor = max(basico, premium, familiar)
+    print(f"Total recaudado: ${total}")
+    print(f"Personas por plan:\nBasico: {basico}\nPremium: {premium}\nFamiliar: {familiar}")
+    print(f"El plan {mayor} fue el mas vendido.")
+
+elif opcion_inicio == 21:
+    print("Hasta la proxima!")
